@@ -1,0 +1,77 @@
+<nav class="navbar navbar-dark bg-dark">
+  <span class="navbar-brand mb-0 h1">Dashboard</span>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Set range
+  </button>
+</nav>
+<section class="pt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <app-multi-chart [data]="temperature"
+                         [range]="range"
+                         [width]="300"
+                         [height]="200"
+                         [type]="'line-chart'"
+                         [name]="'temperature'"
+                         [chartColor]=""
+        ></app-multi-chart>
+      </div>
+      <div class="col-4">
+        <app-multi-chart [data]="humidity"
+                         [range]="range"
+                         [width]="300"
+                         [height]="200"
+                         [type]="'bar-chart'"
+                         [name]="'humidity'"
+                         [chartColor]="'#34b3ff'"
+        ></app-multi-chart>
+      </div>
+       <div class="col-4">
+        <app-multi-chart [data]="pressure"
+                         [range]="range"
+                         [width]="300"
+                         [height]="200"
+                         [type]="'line-chart'"
+                         [name]="'pressure'"
+                         [chartColor]="'#ac66ff'"
+        ></app-multi-chart>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <app-multi-chart [multiData]="data"
+                         [range]="range"
+                         [width]="800"
+                         [height]="500"
+                         [type]="'multi-area-chart'"
+                         [name]="'multi-area'"
+                         [chartColor]=""
+        ></app-multi-chart>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Optional title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-datepicker-range (emitRange)="setRange($event)"></app-datepicker-range>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
